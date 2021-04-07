@@ -1,0 +1,1 @@
+st.beta_set_page_config(layouts="wide")
