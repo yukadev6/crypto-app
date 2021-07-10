@@ -96,7 +96,7 @@ df_coins = df_selected_coin[:num_coin]
 
 # Sidebar with percent change timeframe selection
 percent_timeframe = col1.selectbox('Percent change time frame', ['7d', '24h', '1h'])
-percent_dict = {"7d": 'percent_change_7d',"24h":'percent_change_24', "1h":'percent_change_1h'}
+percent_dict = {"7d": 'percent_change_7d', "1h":'percent_change_1h'}
 selected_percent_timeframe = percent_dict[percent_timeframe]
 
 # Sidebar, sorting values
@@ -118,7 +118,7 @@ col2.markdown(filedownload(df_selected_coin), unsafe_allow_html=True)
 
 # Preparing data for Bar plot of percent price change
 col2.subheader('Table of % Price Change')
-df_change = pd.concat([df_coins.coin_symbol, df_coins.percent_change_1h, df_coins.percent_change_24h, df_coins.percent_change_7d], axis=1)
+df_change = pd.concat([df_coins.coin_symbol, df_coins.percent_change_1h, df_coins.percent_change_7d], axis=1)
 df_change = df_change.set_index('coin_symbol')
 df_change['positive_percent_change_1h'] = df_change['percent_change_1h'] > 0
 df_change['positive_percent_change_24h'] = df_change['percent_change_24h'] > 0
